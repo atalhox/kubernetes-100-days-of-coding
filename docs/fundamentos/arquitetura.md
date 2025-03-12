@@ -2,7 +2,9 @@
 
 ## 1. Introdução
 
-O Kubernetes é uma plataforma de orquestração de contêineres open-source amplamente adotada para gerenciar aplicações em contêineres de forma escalável, resiliente e automatizada. Ele abstrai a infraestrutura subjacente e fornece uma interface declarativa para definir, implantar e gerenciar aplicações distribuídas.
+O Kubernetes é uma plataforma de orquestração de contêineres open-source amplamente adotada para gerenciar aplicações em contêineres de forma escalável, resiliente e automatizada. 
+
+Ele abstrai a infraestrutura subjacente e fornece uma interface declarativa para definir, implantar e gerenciar aplicações distribuídas.
 
 ## 2. Objetivo
 
@@ -25,7 +27,7 @@ O plano de controle é responsável por gerenciar o estado do cluster, garantind
 O API Server é o principal ponto de entrada para a comunicação com o Kubernetes. Ele expõe uma API RESTful que recebe e processa todas as solicitações, sejam elas de usuários, componentes internos ou ferramentas automatizadas.
 
 !!! info "Problema que resolve"
-    O API Server resolve o problema de gerenciamento centralizado, permitindo que diferentes clientes e componentes interajam com o cluster de forma padronizada.
+O API Server resolve o problema de gerenciamento centralizado, permitindo que diferentes clientes e componentes interajam com o cluster de forma padronizada.
 
 ##### Como interagir com o API Server
 
@@ -42,7 +44,7 @@ curl -X GET https://<API_SERVER>/api/v1/nodes -H "Authorization: Bearer <TOKEN>"
 O etcd é um banco de dados distribuído que armazena o estado do cluster. Ele mantém informações sobre nós, pods, serviços, políticas de rede e demais configurações.
 
 !!! warning "Importância do etcd"
-    Se o etcd falhar, o cluster pode ficar inconsistente e até inoperável. Por isso, ele deve ser altamente disponível e devidamente replicado.
+Se o etcd falhar, o cluster pode ficar inconsistente e até inoperável. Por isso, ele deve ser altamente disponível e devidamente replicado.
 
 ##### Como interagir com o etcd
 
@@ -59,7 +61,7 @@ etcdctl get /registry/pods --prefix --keys-only
 O Controller Manager é responsável por executar vários controladores que monitoram o estado do cluster e realizam as ações necessárias para mantê-lo conforme definido.
 
 !!! info "Problema que resolve"
-    Sem um mecanismo de controle, o Kubernetes não teria como garantir que os objetos do cluster estejam sempre no estado desejado.
+Sem um mecanismo de controle, o Kubernetes não teria como garantir que os objetos do cluster estejam sempre no estado desejado.
 
 ##### Como interagir com o Controller Manager
 
@@ -76,7 +78,7 @@ kubectl logs -n kube-system kube-controller-manager-<id>
 O Scheduler é o componente que decide em quais nós os pods serão alocados com base em critérios como disponibilidade de recursos, afinidade, restrições de localização e políticas do cluster.
 
 !!! tip "Agendamento eficiente"
-    O agendamento eficiente é essencial para garantir um uso balanceado dos recursos e evitar gargalos de desempenho.
+O agendamento eficiente é essencial para garantir um uso balanceado dos recursos e evitar gargalos de desempenho.
 
 ##### Como interagir com o Scheduler
 
@@ -97,7 +99,7 @@ Os Worker Nodes são responsáveis por executar as cargas de trabalho dentro do 
 O Kubelet é um agente que roda em cada Worker Node e é responsável por garantir que os contêineres dos pods sejam executados corretamente. Ele se comunica com o API Server para receber comandos e enviar atualizações do estado do nó.
 
 !!! info "Problema que resolve"
-    Sem o Kubelet, o Kubernetes não teria como garantir que os pods estejam sempre rodando conforme esperado nos nós de trabalho.
+Sem o Kubelet, o Kubernetes não teria como garantir que os pods estejam sempre rodando conforme esperado nos nós de trabalho.
 
 ##### Como interagir com o Kubelet
 
@@ -114,7 +116,7 @@ curl -s http://localhost:10255/pods
 O Container Runtime é o software que executa os contêineres dentro do nó. O Kubernetes é compatível com diversos runtimes, como Docker, containerd e CRI-O.
 
 !!! warning "Escolha do runtime"
-    A escolha do runtime pode impactar a performance, a segurança e a compatibilidade do cluster.
+A escolha do runtime pode impactar a performance, a segurança e a compatibilidade do cluster.
 
 ##### Como interagir com o Container Runtime
 
@@ -129,7 +131,7 @@ ctr -n k8s.io containers list
 O Kube Proxy gerencia a comunicação dentro do cluster, garantindo que os serviços possam se comunicar entre si de forma transparente, independentemente do nó onde estão sendo executados.
 
 !!! info "Problema que resolve"
-    Sem o Kube Proxy, os pods não conseguiriam se comunicar corretamente dentro do cluster, tornando inviável a execução de aplicações distribuídas.
+Sem o Kube Proxy, os pods não conseguiriam se comunicar corretamente dentro do cluster, tornando inviável a execução de aplicações distribuídas.
 
 ##### Como interagir com o Kube Proxy
 
