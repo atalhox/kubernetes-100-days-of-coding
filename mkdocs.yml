@@ -147,3 +147,10 @@ extra:
       link: https://br.linkedin.com/in/luisfelipebrum
     - icon: fontawesome/brands/tiktok
       link: https://www.tiktok.com/eunaoeradev
+
+nav:
+  - Home: index.md
+  - Fundamentos:
+      - Introdução: fundamentos/introducao.md
+      - Arquitetura: fundamentos/arquitetura.md
+      - Instalação: fundamentos/instalacao.md
